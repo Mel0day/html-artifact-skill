@@ -1,0 +1,6 @@
+.DS_Store
+.omx/
+artifacts/
+*.log
+node_modules/
+tmp/
