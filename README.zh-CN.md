@@ -1,8 +1,20 @@
 # HTML Artifact Skill
 
+[English](README.md) | [中文](README.zh-CN.md)
+
 `html-artifact` 用来把已经产出的复杂 Human-Agent 内容，整理成自包含、阅读优先的 HTML Artifact。
 
 它适合处理计划、调研总结、代码审查、方案对比、决策树、长解释等内容。这个 skill 不负责重新做上游分析，也不是把聊天记录原样套一层 HTML；它只把已经形成的关键 substance 重新组织成更适合人阅读、导航和继续协作的 HTML 文件。
+
+## 为什么需要这个 skill
+
+Karpathy 那个 HTML prompt pattern 证明了 HTML 是很适合 agent 输出的介质。这个 skill 的价值，是把一次性的 prompt 技巧固化成可复用的输出协议。
+
+在提示词后面加一句“请用 HTML 结构化输出”确实能工作，但结果不稳定：有时只是 Markdown 套 HTML，有时变成花哨页面，有时忘了导出，有时跑偏成前端项目或重新分析。`html-artifact` 给 agent 一组稳定默认值：先结构后样式、先阅读后交互、单文件自包含、无远程依赖，并提供 Markdown Export 用于回传。
+
+一次性实验，用一句 prompt 就够了。高频让 agent 产出复杂计划、审查、调研总结、方案对比、决策记录时，安装这个 skill 的价值是让 `/html` 代表一整套稳定偏好和质量下限。
+
+一句话：HTML 是给人读的表达层；Markdown Export 是给 Agent 和记忆系统继续使用的回传层。
 
 ## 产物是什么
 
@@ -20,8 +32,6 @@
 - 不是模板引擎
 - 不是调研、规划、审查本身
 - 不是 transcript 转 HTML
-
-核心原则：HTML 是给人读的表达层；Markdown Export 是给 Agent 和记忆系统继续使用的回传层。
 
 ## 安装
 

@@ -1,8 +1,20 @@
 # HTML Artifact Skill
 
+[English](README.md) | [中文](README.zh-CN.md)
+
 `html-artifact` turns already-produced complex Human-Agent output into a self-contained, reading-first HTML artifact.
 
 It is designed for moments when a plan, research summary, code review, tradeoff, decision tree, or long explanation is too dense to hand back as plain chat or Markdown. The skill does not redo the upstream thinking. It restructures the existing substance into a portable HTML file that a human can read quickly, navigate, and hand back to an agent or memory system through Markdown export.
+
+## Why This Skill Exists
+
+Karpathy's HTML prompt pattern proves that HTML is a strong medium for agent output. This skill turns that one-off trick into a reusable output protocol.
+
+Appending "structure this as HTML" to a prompt can work, but the result is inconsistent: sometimes it is only Markdown wrapped in HTML, sometimes it becomes decorative, sometimes it forgets export, and sometimes it leaks into app-building or upstream analysis. `html-artifact` gives the agent stable defaults: structure before style, reading before interaction, self-contained files, no remote dependencies, and Markdown export for handoff.
+
+Use a prompt line for one-off experiments. Install the skill when you frequently ask agents to produce complex plans, reviews, research summaries, comparisons, or decision records and want a predictable way to turn them into readable, portable artifacts.
+
+In short: HTML is the human reading layer; Markdown export is the agent and memory handoff layer.
 
 ## What It Produces
 
@@ -19,8 +31,6 @@ It is designed for moments when a plan, research summary, code review, tradeoff,
 - Not a template engine
 - Not an upstream research, planning, or review agent
 - Not a transcript-to-HTML wrapper
-
-The core rule is simple: HTML is the human reading layer. Markdown export is the agent and memory handoff layer.
 
 ## Installation
 
