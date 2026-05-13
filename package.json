@@ -1,0 +1,37 @@
+{
+  "name": "html-artifact-skill",
+  "version": "0.1.1",
+  "description": "Install the html-artifact skill for Codex and Claude Code.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mel0day/html-artifact-skill.git"
+  },
+  "homepage": "https://github.com/Mel0day/html-artifact-skill#readme",
+  "bugs": {
+    "url": "https://github.com/Mel0day/html-artifact-skill/issues"
+  },
+  "bin": {
+    "html-artifact-skill": "bin/install.js"
+  },
+  "files": [
+    "bin",
+    "html-artifact",
+    ".codex/prompts/html.md",
+    "README.md",
+    "README.zh-CN.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "pack:skill": "mkdir -p dist && zip -qr dist/html-artifact-skill-v0.1.1.zip html-artifact .codex bin package.json README.md README.zh-CN.md CHANGELOG.md LICENSE -x \"*.DS_Store\""
+  },
+  "keywords": [
+    "agent-skills",
+    "claude-code",
+    "codex",
+    "html",
+    "markdown",
+    "artifact"
+  ]
+}

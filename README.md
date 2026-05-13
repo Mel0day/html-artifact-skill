@@ -34,24 +34,41 @@ In short: HTML is the human reading layer; Markdown export is the agent and memo
 
 ## Installation
 
-Copy the skill folder into your agent skill root:
+Recommended install:
 
 ```bash
-mkdir -p ~/.agents/skills
-cp -R html-artifact ~/.agents/skills/html-artifact
+npx github:Mel0day/html-artifact-skill install
 ```
 
-Optional Codex slash prompt:
+This installs:
 
-```bash
-mkdir -p ~/.codex/prompts
-cp .codex/prompts/html.md ~/.codex/prompts/html.md
-```
+- Codex skill: `~/.agents/skills/html-artifact`
+- Codex slash prompt: `~/.codex/prompts/html.md`
+- Claude Code skill: `~/.claude/skills/html`
 
 After installation, invoke it with:
 
 ```text
 /html
+```
+
+To replace an existing install:
+
+```bash
+npx github:Mel0day/html-artifact-skill install --force
+```
+
+Install only one agent target:
+
+```bash
+npx github:Mel0day/html-artifact-skill install --codex-only
+npx github:Mel0day/html-artifact-skill install --claude-only
+```
+
+If the package is published to npm, the command becomes:
+
+```bash
+npx html-artifact-skill install
 ```
 
 You can also provide a topic or content hint:
@@ -83,12 +100,14 @@ An artifact is considered successful when:
 ## Repository Contents
 
 ```text
+bin/install.js                    # npx installer for Codex and Claude Code
 html-artifact/
   SKILL.md                         # Skill instructions
   agents/openai.yaml               # Optional agent metadata
   examples/complex-output-draft.md # Example source content
   examples/output-shape.md         # Expected artifact shape
 .codex/prompts/html.md             # Optional /html slash prompt
+package.json                       # npm/npx package metadata
 README.md                          # English documentation
 README.zh-CN.md                    # Chinese documentation
 ```
@@ -99,7 +118,7 @@ This repository includes a distributable archive under `dist/` after packaging:
 
 ```bash
 mkdir -p dist
-zip -r dist/html-artifact-skill-v0.1.0.zip html-artifact .codex README.md README.zh-CN.md CHANGELOG.md LICENSE -x "*.DS_Store"
+zip -r dist/html-artifact-skill-v0.1.1.zip html-artifact .codex bin package.json README.md README.zh-CN.md CHANGELOG.md LICENSE -x "*.DS_Store"
 ```
 
 ## Design Principles
